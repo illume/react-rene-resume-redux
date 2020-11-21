@@ -1,7 +1,9 @@
 import React from "react";
 
+import PageLayout from "./components/PageLayout/PageLayout";
+
 function App() {
-  return <div>React René Resumé Redux</div>;
+  return <PageLayout />;
 }
 
 export default App;
