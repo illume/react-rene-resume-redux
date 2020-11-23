@@ -2,7 +2,7 @@ import React from "react";
 import Highcharts from "highcharts";
 import { useSelector } from "react-redux";
 import HighchartsReact from "highcharts-react-official";
-import { selectExperiences, Experience } from "./experiencesSlice";
+import { selectExperiences, selectTags, Experience } from "./experiencesSlice";
 
 export interface Experiences {
   experiences: Experience[];
@@ -157,11 +157,10 @@ export const PureExperiencesChart = ({
 };
 
 export default function ExperiencesChart() {
-  const experiences = useSelector(selectExperiences);
   return (
     <PureExperiencesChart
-      experiences={experiences}
-      tags={["JavaScript", "TypeScript"]}
+      experiences={useSelector(selectExperiences)}
+      tags={useSelector(selectTags)}
     />
   );
 }

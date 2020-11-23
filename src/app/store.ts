@@ -1,6 +1,8 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import experiencesReducer, {
   add,
+  addTags,
+  toggleFilterTag,
   Experience,
 } from "../features/experiences/experiencesSlice";
 
@@ -37,3 +39,5 @@ const experiences = [
 ] as Experience[];
 
 store.dispatch(add(experiences));
+store.dispatch(addTags(["JavaScript", "TypeScript"]));
+store.dispatch(toggleFilterTag("JavaScript"));

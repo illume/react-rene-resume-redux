@@ -1,10 +1,14 @@
 import reducer, {
   initialState,
   add,
+  addTags,
   selectExperiences,
+  selectFilteredExperiences,
+  selectTags,
+  selectFilteredTags,
+  toggleFilterTag,
   Experience,
 } from "./experiencesSlice";
-import { RootState } from "../../app/store";
 
 describe("experiences slice", () => {
   describe("reducer, actions and selectors", () => {
@@ -20,8 +24,46 @@ describe("experiences slice", () => {
         tags: ["JavaScript", "TypeScript"],
       } as Experience;
       const nextState = reducer(initialState, add([experience]));
-      const rootState = { experiences: nextState } as RootState;
-      expect(selectExperiences(rootState)).toEqual([experience]);
+      expect(selectExperiences({ experiences: nextState })).toEqual([
+        experience,
+      ]);
+    });
+    it("should add tags", () => {
+      const tags = ["JavaScript", "TypeScript"];
+      const nextState = reducer(initialState, addTags(tags));
+      expect(selectTags({ experiences: nextState })).toEqual(tags);
+    });
+
+    it("should filter out an experience", () => {
+      const experiences = [
+        {
+          title: "Front end developer at Example Corp",
+          body: "During my time at Example Corp, I did Y using Z.",
+          tags: ["JavaScript", "TypeScript"],
+        },
+        {
+          title: "Some title 2",
+          body: "some body",
+          tags: ["TypeScript"],
+        },
+      ];
+      const tags = ["JavaScript", "TypeScript"];
+      let nextState = reducer(initialState, add(experiences));
+      nextState = reducer(nextState, addTags(tags));
+      nextState = reducer(nextState, toggleFilterTag("JavaScript"));
+      expect(selectFilteredTags({ experiences: nextState })).toEqual([
+        "JavaScript",
+      ]);
+      const jsExperience = [experiences[0]];
+      expect(selectFilteredExperiences({ experiences: nextState })).toEqual(
+        jsExperience
+      );
+
+      nextState = reducer(nextState, toggleFilterTag("JavaScript"));
+      expect(selectFilteredTags({ experiences: nextState })).toEqual([]);
+      expect(selectFilteredExperiences({ experiences: nextState })).toEqual(
+        experiences
+      );
     });
   });
 });

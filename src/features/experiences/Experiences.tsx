@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
-import { selectExperiences, Experience } from "./experiencesSlice";
+import { selectFilteredExperiences, Experience } from "./experiencesSlice";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -30,7 +30,7 @@ export function PureExperiences({ experiences }: PureExperiencesProps) {
         experiences.map((value, index) => {
           return (
             <Paper className={classes.paper} key={value.title}>
-              <Typography variant="h4">{value.title}</Typography>
+              <Typography variant="h5">{value.title}</Typography>
               <Typography>{value.body}</Typography>
             </Paper>
           );
@@ -40,6 +40,6 @@ export function PureExperiences({ experiences }: PureExperiencesProps) {
 }
 
 export default function Experiences() {
-  const experiences = useSelector(selectExperiences);
+  const experiences = useSelector(selectFilteredExperiences);
   return <PureExperiences experiences={experiences} />;
 }
