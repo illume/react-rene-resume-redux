@@ -10,7 +10,13 @@ export default {
   argTypes: {},
 } as Meta;
 
-const Template: Story<{}> = (args) => <PageLayout {...args} />;
+const Template: Story<{}> = (args) => (
+  <PageLayout {...args}>
+    <p>a</p>
+    <p>b</p>
+    <p>c</p>
+  </PageLayout>
+);
 
 export const EmptyPage = Template.bind({});
 EmptyPage.args = {};

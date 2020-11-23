@@ -1,5 +1,8 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import experiencesReducer from "../features/experiences/experiencesSlice";
+import experiencesReducer, {
+  add,
+  Experience,
+} from "../features/experiences/experiencesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,3 +17,23 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+const experiences = [
+  {
+    title: "Front end developer at Example Corp",
+    body: "During my time at Example Corp, I did Y using Z.",
+    tags: ["JavaScript", "TypeScript", "HighCharts", "2020"],
+  },
+  {
+    title: "Back end developer at Acme Pty Ltd.",
+    body: "During my time at Acme Pty Ltd., I did Y using Z.",
+    tags: ["Node.js", "PostgreSQL", "Express", "2020", "2019"],
+  },
+  {
+    title: "Fullstack developer at Example Solutions Corp.",
+    body: "During my time at Example Solutions Corp, I did Y using Z.",
+    tags: ["Python", "PostgreSQL", "pylint", "React", "2019"],
+  },
+] as Experience[];
+
+store.dispatch(add(experiences));

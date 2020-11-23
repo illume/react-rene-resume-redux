@@ -113,7 +113,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PageLayout() {
+interface PageLayoutProps {
+  children?: JSX.Element[];
+}
+
+export default function PageLayout(props: PageLayoutProps) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
@@ -177,21 +181,21 @@ export default function PageLayout() {
           <Grid container spacing={3}>
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <div>Hello</div>
+                {props.children && props.children[0]}
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <div>world</div>
+                {props.children && props.children[1]}
               </Paper>
             </Grid>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <div>yeah</div>
+                {props.children && props.children[2]}
               </Paper>
             </Grid>
           </Grid>
-          <Box>
+          <Box mt={3}>
             <Copyright />
           </Box>
         </Container>

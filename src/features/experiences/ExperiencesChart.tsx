@@ -128,27 +128,40 @@ const options: Highcharts.Options = {
 
 export interface PureExperiencesChartProps {
   experiences: Experience[];
+  tags: string[];
 }
 
 export const PureExperiencesChart = ({
   experiences,
+  tags,
 }: PureExperiencesChartProps) => {
   const opts = {
     ...options,
     series: experiences
       ? experiencesToSeries({
           experiences,
-          tags: ["JavaScript", "TypeScript"],
+          tags,
           startYear: 2000,
           currentYear: 2020,
         })
       : [],
   };
 
-  return <HighchartsReact highcharts={Highcharts} options={opts} />;
+  return (
+    <HighchartsReact
+      highcharts={Highcharts}
+      options={opts}
+      containerProps={{ style: { height: "100%" } }}
+    />
+  );
 };
 
 export default function ExperiencesChart() {
   const experiences = useSelector(selectExperiences);
-  return <PureExperiencesChart experiences={experiences} />;
+  return (
+    <PureExperiencesChart
+      experiences={experiences}
+      tags={["JavaScript", "TypeScript"]}
+    />
+  );
 }

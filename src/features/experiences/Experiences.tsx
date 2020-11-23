@@ -29,7 +29,7 @@ export function PureExperiences({ experiences }: PureExperiencesProps) {
       {experiences &&
         experiences.map((value, index) => {
           return (
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper} key={value.title}>
               <Typography variant="h4">{value.title}</Typography>
               <Typography>{value.body}</Typography>
             </Paper>
