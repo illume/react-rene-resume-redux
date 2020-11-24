@@ -68,7 +68,7 @@ export function PureTestimonials({ testimonials }: PureTestimonialsProps) {
                 {value.quote}
               </Typography>
               <Typography component="cite" className={classes.cite}>
-                &mdash;{value.name}
+                &mdash;&nbsp;{value.name}
               </Typography>
             </Paper>
           );

@@ -9,6 +9,7 @@ import {
   add,
   addTags,
   toggleFilterTag,
+  addIntro,
 } from "./features/experiences/experiencesSlice";
 
 import { addTestimonials } from "./features/testimonials/testimonialsSlice";
@@ -30,6 +31,7 @@ if (fetchData) {
   fetch("/data.json")
     .then((response) => response.json())
     .then((data) => {
+      store.dispatch(addIntro(data.intro));
       store.dispatch(addTags(data.tags));
       store.dispatch(add(data.experiences));
       store.dispatch(addTestimonials(data.testimonials));
