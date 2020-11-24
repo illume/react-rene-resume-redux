@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   fixedHeight: {
-    height: 240,
+    height: 280,
   },
   menuButton: {
     marginRight: 36,
@@ -179,19 +179,29 @@ export default function PageLayout(props: PageLayoutProps) {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={8} lg={9}>
+            <Grid item xs={12} md={6} lg={6}>
               <Paper className={fixedHeightPaper}>
                 {props.children && props.children[0]}
               </Paper>
             </Grid>
-            <Grid item xs={12} md={4} lg={3}>
+            <Grid item xs={12} md={6} lg={6}>
               <Paper className={fixedHeightPaper}>
                 {props.children && props.children[1]}
               </Paper>
             </Grid>
+            <Grid item xs={12} md={9} lg={9}>
+              <Paper className={fixedHeightPaper}>
+                {props.children && props.children[2]}
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={3} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                {props.children && props.children[3]}
+              </Paper>
+            </Grid>
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                {props.children && props.children[2]}
+                {props.children && props.children[4]}
               </Paper>
             </Grid>
           </Grid>

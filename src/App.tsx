@@ -9,8 +9,10 @@ import Testimonials from "./features/testimonials/Testimonials";
 function App() {
   return (
     <PageLayout>
-      <ExperiencesChart />
+      <p>Hello there.</p>
       <Testimonials />
+      <ExperiencesChart />
+      <p>Word cloud</p>
       <React.Fragment>
         <ExperiencesFilter />
         <Experiences />

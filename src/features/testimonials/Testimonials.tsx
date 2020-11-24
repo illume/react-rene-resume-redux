@@ -4,23 +4,19 @@ import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import Carousel from "react-material-ui-carousel";
 
 import { selectTestimonials, Testimonial } from "./testimonialsSlice";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    display: "flex",
-    flexDirection: "column",
-    padding: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    overflow: "auto",
-  },
+  paper: {},
   blockquote: {
-    fontSize: "1rem",
+    fontSize: "0.8rem",
     fontWeight: 100,
     lineHeight: 1.4,
     margin: 0,
-    maxWidth: "600px",
+    // maxWidth: "600px",
+    // minHeight: "160px",
     padding: "1.5rem",
     position: "relative",
 
@@ -46,9 +42,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   cite: {
+    display: "inherit",
     lineHeight: 3,
     fontWeight: 100,
-    maxWidth: "600px",
+    // maxWidth: "600px",
+    // minHeight: "160px",
     textAlign: "right",
   },
 }));
@@ -61,7 +59,7 @@ export function PureTestimonials({ testimonials }: PureTestimonialsProps) {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <Carousel interval={10000}>
       {testimonials &&
         testimonials.map((value, index) => {
           return (
@@ -75,7 +73,7 @@ export function PureTestimonials({ testimonials }: PureTestimonialsProps) {
             </Paper>
           );
         })}
-    </React.Fragment>
+    </Carousel>
   );
 }
 
