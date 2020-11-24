@@ -27,6 +27,9 @@ export function experiencesToSeries({
   startYear,
   currentYear,
 }: Experiences) {
+  if (tags === undefined) {
+    tags = [];
+  }
   const tagYear: Dictionary<Dictionary<number>> = {};
   const seriesData = tags.map((tag) => ({
     name: tag,
@@ -39,7 +42,7 @@ export function experiencesToSeries({
 
   for (let year = startYear; year < currentYear + 1; year++) {
     experiences.forEach((experience) => {
-      if (experience.tags.includes(year.toString())) {
+      if (experience.tags && experience.tags.includes(year.toString())) {
         tags.forEach((tag) => {
           if (!(tag in tagYear)) {
             tagYear[tag] = {};

@@ -6,7 +6,7 @@ import {
 } from "./ExperiencesChart";
 
 export default {
-  title: "Example/ExperiencesChart",
+  title: "Experiences/Chart",
   component: PureExperiencesChart,
 } as Meta;
 
@@ -16,6 +16,7 @@ const Template: Story<PureExperiencesChartProps> = (args) => (
 
 export const Chart = Template.bind({});
 Chart.args = {
+  tags: ["JavaScript", "TypeScript"],
   experiences: [
     {
       title: "Front end developer at Example Corp",

@@ -3,7 +3,7 @@ import { Story, Meta } from "@storybook/react/types-6-0";
 import { PureExperiences, PureExperiencesProps } from "./Experiences";
 
 export default {
-  title: "Example/Experiences",
+  title: "Experiences/List",
   component: PureExperiences,
 } as Meta;
 
