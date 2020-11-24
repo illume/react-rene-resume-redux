@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
 
 export interface Experience {
   title: string;
@@ -50,11 +49,14 @@ export const experiencesSlice = createSlice({
 });
 
 export const { add, addTags, toggleFilterTag } = experiencesSlice.actions;
-export const selectExperiences = (state: RootState) => state.experiences.all;
-export const selectFilteredExperiences = (state: RootState) =>
-  state.experiences.filteredExperiences;
-export const selectTags = (state: RootState) => state.experiences.tags;
-export const selectFilteredTags = (state: RootState) =>
+export const selectExperiences = (state: { experiences: ExperiencesState }) =>
+  state.experiences.all;
+export const selectFilteredExperiences = (state: {
+  experiences: ExperiencesState;
+}) => state.experiences.filteredExperiences;
+export const selectTags = (state: { experiences: ExperiencesState }) =>
+  state.experiences.tags;
+export const selectFilteredTags = (state: { experiences: ExperiencesState }) =>
   state.experiences.filteredTags;
 
 export default experiencesSlice.reducer;
