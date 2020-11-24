@@ -6,12 +6,18 @@ export interface Experience {
   tags: string[];
 }
 
+export interface Word {
+  text: string;
+  value: number;
+}
+
 export interface ExperiencesState {
   all: Experience[];
   filteredExperiences: Experience[];
   tags: string[];
   filteredTags: string[];
   intro: string;
+  words: Word[];
 }
 
 export const initialState: ExperiencesState = {
@@ -20,6 +26,7 @@ export const initialState: ExperiencesState = {
   tags: [],
   filteredTags: [],
   intro: "",
+  words: [],
 };
 
 export const experiencesSlice = createSlice({
@@ -31,6 +38,9 @@ export const experiencesSlice = createSlice({
     },
     addTags: (state, action: PayloadAction<string[]>) => {
       state.tags.push(...action.payload);
+    },
+    addWords: (state, action: PayloadAction<Word[]>) => {
+      state.words.push(...action.payload);
     },
     addIntro: (state, action: PayloadAction<string>) => {
       state.intro = action.payload;
@@ -58,12 +68,16 @@ export const {
   addTags,
   toggleFilterTag,
   addIntro,
+  addWords,
 } = experiencesSlice.actions;
 export const selectExperiences = (state: { experiences: ExperiencesState }) =>
   state.experiences.all;
 export const selectExperiencesIntro = (state: {
   experiences: ExperiencesState;
 }) => state.experiences.intro;
+export const selectExperiencesWords = (state: {
+  experiences: ExperiencesState;
+}) => state.experiences.words;
 export const selectFilteredExperiences = (state: {
   experiences: ExperiencesState;
 }) => state.experiences.filteredExperiences;
