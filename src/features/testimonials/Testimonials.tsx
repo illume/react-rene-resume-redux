@@ -2,21 +2,17 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Carousel from "react-material-ui-carousel";
 
 import { selectTestimonials, Testimonial } from "./testimonialsSlice";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {},
   blockquote: {
     fontSize: "0.8rem",
     fontWeight: 100,
     lineHeight: 1.4,
     margin: 0,
-    // maxWidth: "600px",
-    // minHeight: "160px",
     padding: "1.5rem",
     position: "relative",
 
@@ -43,10 +39,9 @@ const useStyles = makeStyles((theme) => ({
   },
   cite: {
     display: "inherit",
-    lineHeight: 3,
+    lineHeight: 2,
     fontWeight: 100,
-    // maxWidth: "600px",
-    // minHeight: "160px",
+    paddingRight: "0.8rem",
     textAlign: "right",
   },
 }));
@@ -63,14 +58,14 @@ export function PureTestimonials({ testimonials }: PureTestimonialsProps) {
       {testimonials &&
         testimonials.map((value, index) => {
           return (
-            <Paper className={classes.paper} key={value.quote}>
+            <div key={value.quote}>
               <Typography component="blockquote" className={classes.blockquote}>
                 {value.quote}
               </Typography>
               <Typography component="cite" className={classes.cite}>
                 &mdash;&nbsp;{value.name}
               </Typography>
-            </Paper>
+            </div>
           );
         })}
     </Carousel>

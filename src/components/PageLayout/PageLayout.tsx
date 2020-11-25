@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   fixedHeight: {
-    height: 280,
+    height: 250,
   },
   menuButton: {
     marginRight: 36,
