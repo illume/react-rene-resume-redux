@@ -81,7 +81,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   fixedHeight: {
-    height: 250,
+    [theme.breakpoints.up("md")]: {
+      height: 250,
+    },
   },
   menuButton: {
     marginRight: 36,
@@ -119,7 +121,7 @@ interface PageLayoutProps {
 
 export default function PageLayout(props: PageLayoutProps) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -155,7 +157,7 @@ export default function PageLayout(props: PageLayoutProps) {
             React René Resumé Redux
           </Typography>
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={0} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
