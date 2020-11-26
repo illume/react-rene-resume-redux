@@ -13,23 +13,12 @@ import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://renesd.blogspot.com/">
-        René Dudfield
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import Links from "./Links";
+import Copyright from "./Copyright";
 
 const drawerWidth = 240;
 
@@ -121,7 +110,7 @@ interface PageLayoutProps {
 
 export default function PageLayout(props: PageLayoutProps) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -176,6 +165,7 @@ export default function PageLayout(props: PageLayoutProps) {
           </IconButton>
         </div>
         <Divider />
+        <Links />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
