@@ -71,7 +71,7 @@ export function experiencesToSeries({
 
 const options: Highcharts.Options = {
   title: {
-    text: "Experiences with different technology",
+    text: "Relevant technology experiences",
   },
 
   subtitle: {

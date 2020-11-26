@@ -24,7 +24,7 @@ export default function Links() {
   return (
     <div className={classes.root}>
       <List component="nav">
-        <ListItemLink href="/storybook">
+        <ListItemLink href="https://github.com/illume/react-rene-resume-redux">
           <ListItemText primary="Code for this website github" />
         </ListItemLink>
         <ListItemLink href="/storybook">
