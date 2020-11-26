@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Markdown from "markdown-to-jsx";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -31,7 +32,9 @@ export function PureExperiences({ experiences }: PureExperiencesProps) {
           return (
             <Paper className={classes.paper} key={value.title}>
               <Typography variant="h5">{value.title}</Typography>
-              <Typography>{value.body}</Typography>
+              <Typography>
+                <Markdown>{value.body}</Markdown>
+              </Typography>
             </Paper>
           );
         })}
