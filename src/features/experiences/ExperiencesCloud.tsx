@@ -11,6 +11,9 @@ export interface PureExperiencesCloudProps {
 }
 
 export function PureExperiencesCloud({ words }: PureExperiencesCloudProps) {
+  if (!words || !words.length) {
+    return null;
+  }
   return (
     <ReactWordcloud
       words={words}

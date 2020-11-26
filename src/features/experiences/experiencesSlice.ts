@@ -48,7 +48,7 @@ export const experiencesSlice = createSlice({
     toggleFilterTag: (state, action: PayloadAction<string>) => {
       const tag = action.payload;
       if (state.filteredTags.includes(tag)) {
-        state.filteredTags.splice(state.filteredTags.indexOf(tag), 1);
+        state.filteredTags = state.filteredTags.filter((item) => item !== tag);
       } else {
         state.filteredTags.push(tag);
       }
