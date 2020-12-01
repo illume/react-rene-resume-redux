@@ -28,10 +28,13 @@ export default function Links() {
           <ListItemText primary="Code for this website github" />
         </ListItemLink>
         <ListItemLink href="/storybook">
-          <ListItemText primary="Storybook" />
+          <ListItemText primary="Storybook for this website" />
         </ListItemLink>
         <ListItemLink href="https://renesd.blogspot.com/">
-          <ListItemText primary="Blog" />
+          <ListItemText primary="My Blog" />
+        </ListItemLink>
+        <ListItemLink href="https://github.com/illume/">
+          <ListItemText primary="My github" />
         </ListItemLink>
       </List>
     </div>
