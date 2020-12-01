@@ -16,6 +16,7 @@ import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import Hidden from "@material-ui/core/Hidden";
 
 import Links from "./Links";
 import Copyright from "./Copyright";
@@ -181,11 +182,13 @@ export default function PageLayout(props: PageLayoutProps) {
                 {props.children && props.children[1]}
               </Paper>
             </Grid>
-            <Grid item xs={12} md={9} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                {props.children && props.children[2]}
-              </Paper>
-            </Grid>
+            <Hidden smDown>
+              <Grid item xs={12} md={9} lg={9}>
+                <Paper className={fixedHeightPaper}>
+                  {props.children && props.children[2]}
+                </Paper>
+              </Grid>
+            </Hidden>
             <Grid item xs={12} md={3} lg={3}>
               <Paper className={fixedHeightPaper}>
                 {props.children && props.children[3]}
