@@ -71,9 +71,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   fixedHeight: {
-    [theme.breakpoints.up("md")]: {
-      height: 250,
-    },
+    // [theme.breakpoints.up("md")]: {
+    //   height: "100%",
+    // },
   },
   menuButton: {
     marginRight: 36,
