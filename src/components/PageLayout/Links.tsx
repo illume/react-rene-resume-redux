@@ -18,14 +18,14 @@ function ListItemLink(props: ListItemProps<"a", { button?: true }>) {
   return <ListItem button component="a" {...props} />;
 }
 
-export default function Links() {
+export function Links() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <List component="nav">
         <ListItemLink href="https://github.com/illume/react-rene-resume-redux">
-          <ListItemText primary="Code for this website github" />
+          <ListItemText primary="Code for this website GitHub" />
         </ListItemLink>
         <ListItemLink href="/storybook">
           <ListItemText primary="Storybook for this website" />
@@ -34,9 +34,11 @@ export default function Links() {
           <ListItemText primary="My Blog" />
         </ListItemLink>
         <ListItemLink href="https://github.com/illume/">
-          <ListItemText primary="My github" />
+          <ListItemText primary="My GitHub" />
         </ListItemLink>
       </List>
     </div>
   );
 }
+
+export default Links;
