@@ -10,7 +10,10 @@ export function Copyright() {
         René Dudfield
       </Link>{" "}
       {new Date().getFullYear()}
-      {"."}
+      {". "}
+      {
+        "All trademarks, service marks and company names are the property of their respective owners."
+      }
     </Typography>
   );
 }
