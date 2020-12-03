@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Experience {
   title: string;
+  subtitle: string;
+  image: string;
   body: string;
   tags: string[];
 }

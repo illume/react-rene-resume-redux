@@ -19,7 +19,9 @@ describe("experiences slice", () => {
 
     it("should add an experience", () => {
       const experience = {
-        title: "Front end developer at Example Corp",
+        title: "Front end developer",
+        subtitle: "Example Corp",
+        image: "",
         body: "During my time at Example Corp, I did Y using Z.",
         tags: ["JavaScript", "TypeScript"],
       } as Experience;
@@ -37,12 +39,16 @@ describe("experiences slice", () => {
     it("should filter out an experience", () => {
       const experiences = [
         {
-          title: "Front end developer at Example Corp",
+          title: "Front end developer",
+          subtitle: "Example Corp",
+          image: "",
           body: "During my time at Example Corp, I did Y using Z.",
           tags: ["JavaScript", "TypeScript"],
         },
         {
           title: "Some title 2",
+          subtitle: "ABadExample Corp",
+          image: "",
           body: "some body",
           tags: ["TypeScript"],
         },

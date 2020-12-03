@@ -2,34 +2,48 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Markdown from "markdown-to-jsx";
 
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
+
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+
 import { selectFilteredExperiences, Experience } from "./experiencesSlice";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    display: "flex",
-    flexDirection: "column",
-    padding: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    overflow: "auto",
-  },
-  tags: {
-    display: "flex",
-    justifyContent: "right",
-    flexWrap: "wrap",
-    listStyle: "none",
-    padding: theme.spacing(0.5),
-    marginTop: theme.spacing(2),
-    margin: 0,
-  },
-  chip: {
-    margin: theme.spacing(0.5),
-  },
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    content: {
+      flex: "1 0 auto",
+    },
+    cover: {
+      width: 151,
+    },
+    chip: {
+      margin: theme.spacing(0.5),
+    },
+    details: {
+      display: "flex",
+      flexDirection: "column",
+    },
+    root: {
+      display: "flex",
+      padding: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
+    tags: {
+      display: "flex",
+      justifyContent: "right",
+      flexWrap: "wrap",
+      listStyle: "none",
+      padding: theme.spacing(0.5),
+      marginTop: theme.spacing(2),
+      margin: 0,
+    },
+  })
+);
 
 export interface PureExperiencesProps {
   experiences: Experience[];
@@ -43,13 +57,36 @@ export function PureExperiences({ experiences }: PureExperiencesProps) {
       {experiences &&
         experiences.map((experience, index) => {
           return (
-            <Paper className={classes.paper} key={experience.title}>
-              <Typography variant="h5">{experience.title}</Typography>
-              <Typography>
-                <Markdown>{experience.body}</Markdown>
-              </Typography>
-              <Tags tags={experience.tags} />
-            </Paper>
+            <Card
+              className={classes.root}
+              key={experience.title + experience.subtitle}
+            >
+              {experience.image && (
+                <CardMedia
+                  className={classes.cover}
+                  image={experience.image}
+                  title={experience.title}
+                />
+              )}
+              <div className={classes.details}>
+                <CardContent className={classes.content}>
+                  <Typography component="h5" variant="h5">
+                    {experience.title}
+                  </Typography>
+                  <Typography variant="subtitle1" color="textSecondary">
+                    {experience.subtitle}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="span"
+                  >
+                    <Markdown>{experience.body}</Markdown>
+                  </Typography>
+                  <Tags tags={experience.tags} />
+                </CardContent>
+              </div>
+            </Card>
           );
         })}
     </React.Fragment>

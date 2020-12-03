@@ -10,7 +10,7 @@ export interface PureExperiencesIntroProps {
 
 export function PureExperiencesIntro({ intro }: PureExperiencesIntroProps) {
   return (
-    <Typography>
+    <Typography component="span">
       <Markdown>{intro}</Markdown>
     </Typography>
   );
