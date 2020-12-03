@@ -79,9 +79,7 @@ export default function PageLayout(props: PageLayoutProps) {
               </Paper>
             </Grid>
             <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                {props.children && props.children[4]}
-              </Paper>
+              {props.children && props.children[4]}
             </Grid>
           </Grid>
           <Box mt={3}>

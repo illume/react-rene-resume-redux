@@ -23,4 +23,6 @@ Filter.args = {
   tagToggled: (tag) => {
     alert("You clicked the filter:" + tag);
   },
+  numExperiences: 2,
+  numFilteredExperiences: 2,
 };
